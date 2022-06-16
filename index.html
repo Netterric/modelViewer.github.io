@@ -17,6 +17,17 @@
     width: 100%;
     height: 100%;
   }
+  .btn {
+    display: inline-block; /* Строчно-блочный элемент */
+    background: #8C959D; /* Серый цвет фона */
+    color: #fff; /* Белый цвет текста */
+    padding: 1rem 1.5rem; /* Поля вокруг текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    border-radius: 3px; /* Скругляем уголки */
+    vertical-align: top;
+    margin: auto;
+
+   }
 
   #ar-button {
     background-image: url(../../assets/ic_view_in_ar_new_googblue_48dp.png);
@@ -33,7 +44,7 @@
     font-family: Roboto Regular, Helvetica Neue, sans-serif;
     font-size: 14px;
     color:#4285f4;
-    height: 100px;
+    height: 200px;
     line-height: 36px;
     border-radius: 18px;
     border: 1px solid #DADCE0;
@@ -150,21 +161,22 @@
 </style>
   </head>
   <body>
-	<model-viewer bounds="tight" enable-pan src="Models\fligelCOLLADABLENDERGLTF20.gltf"
-	ar
-	ar-modes="webxr scene-viewer quick-look" camera-controls environment-image="neutral" poster="poster.webp" shadow-intensity="1"
-	auto-rotate
-	>  <div id="error" class="hide">Дополненная реальность не поддерживается на этом устройстве</div> </model-viewer>
-	<script>
-		document.querySelector("#model-viewer").addEventListener('ar-status', (event) => {
-		  if(event.detail.status === 'failed'){
+    <a href="https://www.flutee.ru/ar/" target="_self" class="btn">Назад</a>
+    <model-viewer bounds="tight" enable-pan src="Models\fligelCOLLADABLENDERGLTF20.gltf"
+    ar
+    ar-modes="webxr scene-viewer quick-look" camera-controls environment-image="neutral" poster="poster.webp" shadow-intensity="1"
+    auto-rotate
+    >  <div id="error" class="hide">Дополненная реальность не поддерживается на этом устройстве</div> </model-viewer>
+    <script>
+      document.querySelector("#model-viewer").addEventListener('ar-status', (event) => {
+        if(event.detail.status === 'failed'){
 			const error = document.querySelector("#error");
 			error.classList.remove('hide');
 			error.addEventListener('transitionend',(event) => {
-			  error.classList.add('hide');
+        error.classList.add('hide');
 			});
-		  }
-		});
-	  </script>
+    }
+  });
+  </script>
   </body>
 </html>
